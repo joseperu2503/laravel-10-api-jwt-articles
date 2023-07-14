@@ -20,21 +20,19 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group([
-    'middleware' => 'api',
-    'prefix' => 'auth'
-], function () {
+Route::middleware('api')->group(function () {
     Route::post('login', [AuthController::class,'login']);
     Route::post('register', [AuthController::class,'register']);
-    Route::get('logout', [AuthController::class,'logout']);
-    Route::get('refresh', [AuthController::class,'refresh']);
-    Route::get('me', [AuthController::class,'me']);
-});
 
-Route::middleware('api')->group(function () {
-    Route::get('articles',[ArticleController::class,'index']);
-    Route::post('articles',[ArticleController::class,'store']);
-    Route::get('articles/{article}',[ArticleController::class,'show']);
-    Route::put('articles/{article}',[ArticleController::class,'update']);
-    Route::delete('articles/{article}',[ArticleController::class,'destroy']);
+    Route::middleware('auth:api')->group(function () {
+        Route::get('logout', [AuthController::class,'logout']);
+        Route::get('refresh', [AuthController::class,'refresh']);
+        Route::get('me', [AuthController::class,'me']);
+
+        Route::get('articles',[ArticleController::class,'index']);
+        Route::post('articles',[ArticleController::class,'store']);
+        Route::get('articles/{article}',[ArticleController::class,'show']);
+        Route::put('articles/{article}',[ArticleController::class,'update']);
+        Route::delete('articles/{article}',[ArticleController::class,'destroy']);
+    });
 });
