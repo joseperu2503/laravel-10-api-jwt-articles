@@ -23,11 +23,11 @@ class ArticleRequest extends FormRequest
     public function messages()
     {
         return [
-            'description.required' => 'La descripcion es obligatoria',
-            'price.required' => 'El precio es obligatorio',
-            'stock.required' => 'El stock es obligatorio',
-            'price.numeric' => 'El precio debe ser un numero',
-            'stock.numeric' => 'El stock debe ser un numero',
+            'description.required' => 'Description is required.',
+            'price.required' => 'Price is required.',
+            'stock.required' => 'Stock is required.',
+            'price.numeric' => 'Price must be a number.',
+            'stock.numeric' => 'Stock must be a number.',
         ];
     }
 }
