@@ -26,7 +26,7 @@ class ArticleController extends Controller
 
         return [
             'success' => true,
-            'message' => 'Articulo registrado correctamente'
+            'message' => 'Article registered successfully'
         ];
     }
 
@@ -53,7 +53,7 @@ class ArticleController extends Controller
         $article->update($request->all());
         return [
             'success' => true,
-            'message' => 'Articulo actualizado correctamente'
+            'message' => 'Article updated successfully'
         ];
     }
 
@@ -68,7 +68,7 @@ class ArticleController extends Controller
         $article->delete();
         return [
             'success' => true,
-            'message' => 'Articulo eliminado correctamente'
+            'message' => 'Article deleted successfully'
         ];
     }
 }
